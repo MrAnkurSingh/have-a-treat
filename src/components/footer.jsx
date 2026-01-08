@@ -2,12 +2,12 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#FFF3E8] text-gray-700">
-      <div className="max-w-7xl mx-auto px-6 py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="bg-[#0f0f0f] text-white py-2">
+      <div className="max-w-7xl mx-auto px-6 py-8 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
 
         
         <div>
-          <h3 className="text-2xl font-bold text-[#FF6F61] mb-3">
+          <h3 className="text-2xl font-bold text-[#fbf9f8] mb-3">
             Have a Treat
           </h3>
           <p className="text-sm leading-relaxed">
@@ -18,8 +18,8 @@ const Footer = () => {
 
         
         <div>
-          <h4 className="font-semibold mb-3">Quick Links</h4>
-          <ul className="space-y-2 text-sm">
+          <h4 className="font-semibold mb-2">Quick Links</h4>
+          <ul className="space-y-2 text-sm ">
             <li className="hover:text-[#FF6F61] cursor-pointer">Home</li>
             <li className="hover:text-[#FF6F61] cursor-pointer">Menu</li>
             <li className="hover:text-[#FF6F61] cursor-pointer">About Us</li>
@@ -32,11 +32,11 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold mb-3">Our Treats</h4>
           <ul className="space-y-2 text-sm">
-            <li>Cookies</li>
-            <li>Cakes</li>
-            <li>Cupcakes</li>
-            <li>Brownies</li>
-            <li>Special Treats</li>
+            <li className="hover:text-[#FF6F61] cursor-pointer">Cookies</li>
+            <li className="hover:text-[#FF6F61] cursor-pointer">Cakes</li>
+            <li className="hover:text-[#FF6F61] cursor-pointer">Cupcakes</li>
+            <li className="hover:text-[#FF6F61] cursor-pointer">Brownies</li>
+            <li className="hover:text-[#FF6F61] cursor-pointer">Special Treats</li>
           </ul>
         </div>
 

@@ -1,11 +1,10 @@
 import React from 'react';
-
-import Footer from './components/footer';
+import Home from './pages/home';
 
 const App = () => {
   return (
    <>
- <Footer/>
+    <Home/>
    </>
   );
 }
