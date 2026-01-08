@@ -1,14 +1,18 @@
 import React from 'react';
+import Home from './pages/home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar';
 
 const App = () => {
   return (
-    <BrowserRouter>
+   <>
+   <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navbar />} />
+        <Route path="/" element={<Home />} />
+
       </Routes>
-    </BrowserRouter>
+   </BrowserRouter>
+   </>
   );
 };
 
