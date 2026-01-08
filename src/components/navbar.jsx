@@ -8,12 +8,12 @@ const Navbar = () => {
     <header className="bg-[#0f0f0f] text-white fixed top-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
         
-        {/* Logo */}
+        
         <Link to="/" className="text-2xl font-semibold tracking-wide">
           <span className="text-orange-500">Bakery</span>
         </Link>
 
-        {/* Desktop Navigation */}
+        
         <nav className="hidden md:flex space-x-8 text-sm uppercase tracking-wider">
           <Link className="hover:text-orange-500 transition" to="/">Home</Link>
           <Link className="hover:text-orange-500 transition" to="/pages">Pages</Link>
