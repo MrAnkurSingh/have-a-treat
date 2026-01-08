@@ -1,10 +1,13 @@
 import React from 'react';
 import Footer from '../components/footer';
+import Navbar from '../components/navbar';
 
 const Home = () => {
     return (
        <>
  <>
+  <Navbar />
+
   <main className="min-h-screen w-full bg-[#0f0f0f] text-white flex flex-col items-center">
 
     
