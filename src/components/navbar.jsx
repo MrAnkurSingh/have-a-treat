@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <header
       className={`
-        bg-white/90 backdrop-blur-sm
+       bg-transparent
         fixed top-0 left-0 w-full z-50
       
         transition-transform duration-300 ease-in-out

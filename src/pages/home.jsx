@@ -52,7 +52,7 @@ const Home = () => {
     <>
       <Navbar />
 
-      <main className="w-full bg-[#FFF6ED] mt-17">
+      <main className="w-full bg-[#FFF6ED] ">
 
        
         <section className="relative min-h-screen w-full overflow-hidden bg-cover bg-center"
