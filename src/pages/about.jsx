@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <section className="bg-[#0f0f0f] text-gray-200 py-16 px-6">
+    <section className="h-full bg-[#0f0f0f] text-gray-200 py-16 px-6">
       <div className="max-w-5xl mx-auto">
 
         <h1 className="text-4xl font-bold text-center text-orange-500 mb-12">
@@ -14,7 +14,7 @@ const About = () => {
             Our Brand Story
           </h2>
           <p className="leading-relaxed text-gray-300">
-            <span className="text-orange-400 font-semibold">Have a Treat</span> 
+            <span className="text-orange-400 font-bold">Have a Treat </span> 
             was created with one simple idea — to spread happiness through
             desserts. We believe that sweets are not just food, but moments of
             joy shared with family and loved ones.
@@ -56,9 +56,7 @@ const About = () => {
         </div>
 
         <div className="bg-[#1a1a1a] rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-semibold text-orange-500 mb-4">
-            A Family-Friendly Promise
-          </h2>
+          
           <p className="text-gray-300 leading-relaxed max-w-3xl mx-auto">
             At Have a Treat, families always come first. Our desserts are crafted
             to be enjoyed by kids and adults alike, with flavors that feel

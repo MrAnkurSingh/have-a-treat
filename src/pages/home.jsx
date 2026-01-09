@@ -1,12 +1,42 @@
 import React from 'react';
 import Footer from '../components/footer';
 import Navbar from '../components/navbar';
-import ProductCards from '../components/Cards';
+
 const Home = () => {
-    return (
-       <>
- <>
-  <Navbar />
+  const [currentBg, setCurrentBg] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+
+
+  useEffect(() => {
+    bgImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoaded(true);
+    }, 300); 
+
+    return () => clearTimeout(timer);
+  }, []);
+
+
+  useEffect(() => {
+    if (!loaded) return;
+
+    const interval = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % bgImages.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [loaded]);
+
+  return (
+    <>
+      <Navbar />
 
   <main className="min-h-screen w-full bg-[#0f0f0f] text-white flex flex-col items-center mt-10">
 
@@ -23,8 +53,17 @@ const Home = () => {
         </p>
       </div>
 
+     
+      {/* <div className="flex justify-center md:w-1/2">
+        <img
+          className="w-48 sm:w-60 md:w-72 lg:w-80 object-contain"
+          src="../../public/assets/logo/logoImg.png"
+          alt="Have a Treat Logo"
+        />
+      </div> */}
+
     </div>
-    <ProductCards />
+
   </main>
    <Footer />
 </>
