@@ -1,6 +1,20 @@
-import React from 'react';
-import Footer from '../components/footer';
-import Navbar from '../components/navbar';
+import React, { useEffect, useState } from "react";
+import Footer from "../components/footer";
+import Navbar from "../components/navbar";
+import ProductCards from "../components/Cards";
+
+const bgImages = [
+  "/assets/slider/bg1.jpg",
+  "/assets/slider/bg2.jpg",
+  "/assets/slider/bg3.jpg",
+  "/assets/slider/bg4.jpg",
+  "/assets/slider/bg5.jpg",
+  "/assets/slider/bg6.jpg",
+  "/assets/slider/bg7.jpg",
+  "/assets/slider/bg8.jpg",
+  "/assets/slider/bg9.jpg",
+  "/assets/slider/bg10.jpg",
+];
 
 const Home = () => {
   const [currentBg, setCurrentBg] = useState(0);
@@ -38,39 +52,56 @@ const Home = () => {
     <>
       <Navbar />
 
-  <main className="min-h-screen w-full bg-[#0f0f0f] text-white flex flex-col items-center mt-10">
+      <main className="w-full bg-[#FFF6ED]">
 
-    
-    <div className="FontCard flex flex-col md:flex-row items-center justify-center gap-10 bg-[#1f1f1f] rounded-2xl m-3 mt-10 p-8 max-w-6xl w-full">
+       
+        <section className="relative min-h-screen w-full overflow-hidden">
 
       
-      <div className="text-center md:w-1/2 flex flex-col items-center">
-        <h1 className="text-3xl md:text-4xl font-bold">
-          Welcome to Have a Treat!
-        </h1>
-        <p className="mt-4 text-base md:text-lg text-gray-300 max-w-md">
-          Delicious desserts for every occasion.
-        </p>
-      </div>
+          {bgImages.map((img, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+                index === currentBg ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ backgroundImage: `url(${img})` }}
+            />
+          ))}
 
-     
-      {/* <div className="flex justify-center md:w-1/2">
-        <img
-          className="w-48 sm:w-60 md:w-72 lg:w-80 object-contain"
-          src="../../public/assets/logo/logoImg.png"
-          alt="Have a Treat Logo"
-        />
-      </div> */}
+          
+          <div className="absolute inset-0" />
 
-    </div>
+         
+          <div
+            className={`relative z-20 min-h-screen flex flex-col items-center justify-center text-center px-6
+            transition-all duration-5000 ease-out
+            ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+          `}
+          >
+            <h1 className="text-4xl md:text-6xl font-bold text-[#E76F51] ">
+              Have a Treat
+            </h1>
 
-  </main>
-   <Footer />
-</>
+            <p className="mt-4 text-base font-bold md:text-lg text-white max-w-xl">
+              Hand-crafted desserts made with love and premium ingredients.
+            </p>
 
-</>
+            <button className="mt-8 px-8 py-3 rounded-full bg-[#E76F51] text-white font-medium hover:bg-white hover:text-[#E76F51] transition">
+              Explore Desserts
+            </button>
+          </div>
+        </section>
 
-    );
-}
+       
+        <section className="py-20 bg-white">
+         <ProductCards />
+        </section>
+
+      </main>
+
+      <Footer />
+    </>
+  );
+};
 
 export default Home;
