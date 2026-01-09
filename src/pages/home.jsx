@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../components/footer';
 import Navbar from '../components/navbar';
-
+import ProductCards from '../components/Cards';
 const Home = () => {
     return (
        <>
@@ -23,17 +23,8 @@ const Home = () => {
         </p>
       </div>
 
-     
-      {/* <div className="flex justify-center md:w-1/2">
-        <img
-          className="w-48 sm:w-60 md:w-72 lg:w-80 object-contain"
-          src="../../public/assets/logo/logoImg.png"
-          alt="Have a Treat Logo"
-        />
-      </div> */}
-
     </div>
-
+    <ProductCards />
   </main>
    <Footer />
 </>
