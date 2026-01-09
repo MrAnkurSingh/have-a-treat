@@ -1,46 +1,74 @@
-import React from 'react';
-import Footer from '../components/footer';
-import Navbar from '../components/navbar';
+import React, { useEffect, useState } from "react";
+import Footer from "../components/footer";
+import Navbar from "../components/navbar";
+
+const bgImages = [
+  "../public/assets/slider/bg1.jpg",
+  "../public/assets/slider/bg2.jpg",
+  "../public/assets/slider/bg3.jpg",
+  "../public/assets/slider/bg4.jpg",
+  "../public/assets/slider/bg5.jpg",
+  "../public/assets/slider/bg6.jpg",
+  "../public/assets/slider/bg7.jpg",
+  "../public/assets/slider/bg8.jpg",
+  "../public/assets/slider/bg9.jpg",
+  "../public/assets/slider/bg10.jpg",
+];
 
 const Home = () => {
-    return (
-       <>
- <>
-  <Navbar />
+  const [currentBg, setCurrentBg] = useState(0);
 
-  <main className="min-h-screen w-full bg-[#0f0f0f] text-white flex flex-col items-center mt-10">
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % bgImages.length);
+    }, 2000);
 
-    
-    <div className="FontCard flex flex-col md:flex-row items-center justify-center gap-10 bg-[#1f1f1f] rounded-2xl m-3 mt-10 p-8 max-w-6xl w-full">
+    return () => clearInterval(interval);
+  }, []);
 
-      
-      <div className="text-center md:w-1/2 flex flex-col items-center">
-        <h1 className="text-3xl md:text-4xl font-bold">
-          Welcome to Have a Treat!
-        </h1>
-        <p className="mt-4 text-base md:text-lg text-gray-300 max-w-md">
-          Delicious desserts for every occasion.
-        </p>
-      </div>
+  return (
+    <>
+      <Navbar />
 
-     
-      {/* <div className="flex justify-center md:w-1/2">
-        <img
-          className="w-48 sm:w-60 md:w-72 lg:w-80 object-contain"
-          src="../../public/assets/logo/logoImg.png"
-          alt="Have a Treat Logo"
-        />
-      </div> */}
+      <main className="min-h-screen w-full bg-[#0f0f0f] text-white flex flex-col items-center">
 
-    </div>
+       
+        <div className="relative max-w-6xl w-full m-3 mt-20 rounded-2xl overflow-hidden h-1/2md:h-96">
 
-  </main>
-   <Footer />
-</>
+         
+          {bgImages.map((img, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+                index === currentBg ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ backgroundImage: `url(${img})` }}
+            />
+          ))}
 
-</>
+        
+          <div className="absolute inset-0 bg-black/60 " />
 
-    );
-}
+        
+          <div className="relative z-20 FontCard flex flex-col md:flex-row items-center justify-center gap-10 min-h-[300px]">
+
+            <div className="text-center md:w-1/2 flex flex-col items-center">
+              <h1 className="text-3xl md:text-4xl font-bold">
+                Welcome to Have a Treat!
+              </h1>
+              <p className="mt-4 text-base md:text-lg text-gray-300 max-w-md">
+                Delicious desserts for every occasion.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+
+      <Footer />
+    </>
+  );
+};
 
 export default Home;
