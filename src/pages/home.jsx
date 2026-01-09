@@ -3,39 +3,60 @@ import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 
 const bgImages = [
-  "../public/assets/slider/bg1.jpg",
-  "../public/assets/slider/bg2.jpg",
-  "../public/assets/slider/bg3.jpg",
-  "../public/assets/slider/bg4.jpg",
-  "../public/assets/slider/bg5.jpg",
-  "../public/assets/slider/bg6.jpg",
-  "../public/assets/slider/bg7.jpg",
-  "../public/assets/slider/bg8.jpg",
-  "../public/assets/slider/bg9.jpg",
-  "../public/assets/slider/bg10.jpg",
+  "/assets/slider/bg1.jpg",
+  "/assets/slider/bg2.jpg",
+  "/assets/slider/bg3.jpg",
+  "/assets/slider/bg4.jpg",
+  "/assets/slider/bg5.jpg",
+  "/assets/slider/bg6.jpg",
+  "/assets/slider/bg7.jpg",
+  "/assets/slider/bg8.jpg",
+  "/assets/slider/bg9.jpg",
+  "/assets/slider/bg10.jpg",
 ];
 
 const Home = () => {
   const [currentBg, setCurrentBg] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+
 
   useEffect(() => {
+    bgImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoaded(true);
+    }, 300); 
+
+    return () => clearTimeout(timer);
+  }, []);
+
+
+  useEffect(() => {
+    if (!loaded) return;
+
     const interval = setInterval(() => {
       setCurrentBg((prev) => (prev + 1) % bgImages.length);
     }, 2000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [loaded]);
 
   return (
     <>
       <Navbar />
 
-      <main className="min-h-screen w-full bg-[#0f0f0f] text-white flex flex-col items-center">
+      <main className="w-full bg-[#FFF6ED]">
 
        
-        <div className="relative max-w-6xl w-full m-3 mt-20 rounded-2xl overflow-hidden h-1/2md:h-96">
+        <section className="relative min-h-screen w-full overflow-hidden">
 
-         
+      
           {bgImages.map((img, index) => (
             <div
               key={index}
@@ -46,23 +67,41 @@ const Home = () => {
             />
           ))}
 
-        
-          <div className="absolute inset-0 bg-black/60 " />
+          
+          <div className="absolute inset-0" />
 
-        
-          <div className="relative z-20 FontCard flex flex-col md:flex-row items-center justify-center gap-10 min-h-[300px]">
+         
+          <div
+            className={`relative z-20 min-h-screen flex flex-col items-center justify-center text-center px-6
+            transition-all duration-5000 ease-out
+            ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+          `}
+          >
+            <h1 className="text-4xl md:text-6xl font-bold text-[#E76F51] ">
+              Have a Treat
+            </h1>
 
-            <div className="text-center md:w-1/2 flex flex-col items-center">
-              <h1 className="text-3xl md:text-4xl font-bold">
-                Welcome to Have a Treat!
-              </h1>
-              <p className="mt-4 text-base md:text-lg text-gray-300 max-w-md">
-                Delicious desserts for every occasion.
-              </p>
-            </div>
+            <p className="mt-4 text-base font-bold md:text-lg text-white max-w-xl">
+              Hand-crafted desserts made with love and premium ingredients.
+            </p>
 
+            <button className="mt-8 px-8 py-3 rounded-full bg-[#E76F51] text-white font-medium hover:bg-white hover:text-[#E76F51] transition">
+              Explore Desserts
+            </button>
           </div>
-        </div>
+        </section>
+
+       
+        <section className="py-20 bg-white">
+          <div className="max-w-6xl mx-auto px-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#3A2E2A]">
+              Our Special Desserts
+            </h2>
+            <p className="mt-4 text-[#7A5C50] max-w-2xl mx-auto">
+              Freshly baked cakes, pastries, and treats you’ll fall in love with.
+            </p>
+          </div>
+        </section>
 
       </main>
 
