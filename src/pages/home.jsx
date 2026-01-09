@@ -52,16 +52,17 @@ const Home = () => {
     <>
       <Navbar />
 
-      <main className="w-full bg-[#FFF6ED]">
+      <main className="w-full bg-[#FFF6ED] mt-17">
 
        
-        <section className="relative min-h-screen w-full overflow-hidden">
+        <section className="relative min-h-screen w-full overflow-hidden bg-cover bg-center"
+  style={{ backgroundImage: `url(${bgImages[currentBg]})` }}>
 
       
           {bgImages.map((img, index) => (
             <div
               key={index}
-              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-2000 ${
                 index === currentBg ? "opacity-100" : "opacity-0"
               }`}
               style={{ backgroundImage: `url(${img})` }}
@@ -69,7 +70,7 @@ const Home = () => {
           ))}
 
           
-          <div className="absolute inset-0" />
+          <div />
 
          
           <div
@@ -78,8 +79,8 @@ const Home = () => {
             ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
           `}
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-[#E76F51] ">
-              Have a Treat
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg">
+              Life’s sweeter when you <span className="text-[#5c352c]">"Have a Treat."</span>
             </h1>
 
             <p className="mt-4 text-base font-bold md:text-lg text-white max-w-xl">
