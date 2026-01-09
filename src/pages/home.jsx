@@ -33,7 +33,7 @@ const Home = () => {
       <main className="min-h-screen w-full bg-[#0f0f0f] text-white flex flex-col items-center">
 
        
-        <div className="relative max-w-6xl w-full m-3 mt-20 rounded-2xl overflow-hidden h-1/2md:h-96">
+        <div className="relative max-w-6xl w-full m-3 mt-25 rounded-2xl overflow-hidden h-1/2md:h-96">
 
          
           {bgImages.map((img, index) => (
