@@ -3,23 +3,24 @@ import { Link } from "react-router-dom";
 const products = [
   {
     id: 1,
-    title: "Chocolate Cake",
-    desc: "Rich & moist chocolate delight",
-    image: "https://sp.yimg.com/ib/th?&id=ODL.d0821660b593862c9e460a660d9bfbb7&w=148&h=148&c=4&dpr=2&rs=1",
+    title: "Cookies",
+    desc: "Freshly baked, crispy & buttery cookies",
+    image: "/assets/items/image1.png",
   },
   {
     id: 2,
-    title: "Cream Pastry",
-    desc: "Light, fluffy & freshly baked",
-    image: "https://tse1.mm.bing.net/th/id/OIP.KdkXmjrC42LieDoSFj6nMgHaGf?pid=Api&rs=1&c=1&qlt=95&w=134&h=117",
+    title: "Cakes",
+    desc: "Soft, rich & creamy celebration cakes",
+    image: "/assets/items/image2.png",
   },
   {
     id: 3,
-    title: "Butter Cookies",
-    desc: "Crispy & buttery perfection",
-    image: "https://tse1.mm.bing.net/th/id/OIP.txDK3z2O6GyZrdVy6eWbxwHaLG?pid=Api&rs=1&c=1&qlt=95&w=81&h=121",
+    title: "Cupcakes",
+    desc: "Mini delights with creamy frosting",
+    image: "/assets/items/image3.png",
   },
 ];
+
 
 const ProductCards = () => {
   return (
@@ -32,17 +33,17 @@ const ProductCards = () => {
         {products.map((item) => (
           <div
             key={item.id}
-            className="group relative bg-[#1f1f1f] rounded-xl overflow-hidden shadow-lg"
+            className="group relative  rounded-xl overflow-hidden"
           >
-            {/* IMAGE */}
+           
             <img
               src={item.image}
               alt={item.title}
               className="h-56 w-full object-cover"
             />
 
-            {/* TEXT */}
-            <div className="p-6">
+      
+            <div className="p-6 flex justify-center flex-col items-center bg-white">
               <h3 className="text-xl font-semibold mb-2">
                 {item.title}
               </h3>
@@ -51,7 +52,7 @@ const ProductCards = () => {
               </p>
             </div>
 
-            {/* HOVER OVERLAY (FIXED) */}
+            
             <div className="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
               <Link
                 to={`/product/${item.id}`}
